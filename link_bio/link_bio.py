@@ -3,7 +3,10 @@ from components.navbar import navbar
 
 def index() -> rx.Component:
     return rx.center(
-        navbar()
+        rx.vstack(
+            navbar(),
+            navbar()
+        )
     )
     
 app = rx.App()

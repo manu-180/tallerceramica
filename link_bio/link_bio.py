@@ -5,6 +5,8 @@ def index() -> rx.Component:
     return rx.center(
         rx.vstack(
             navbar(),
+            navbar(),
+            navbar(),
             navbar()
         )
     )

@@ -7,6 +7,8 @@ def index() -> rx.Component:
             navbar(),
             navbar(),
             navbar(),
+            navbar(),
+            navbar(),
             navbar()
         )
     )

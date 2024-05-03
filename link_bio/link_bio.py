@@ -1,15 +1,11 @@
 import reflex as rx
 from components.navbar import navbar
+from link_bio.pages.login import login
 
 def index() -> rx.Component:
     return rx.center(
         rx.vstack(
-            navbar(),
-            navbar(),
-            navbar(),
-            navbar(),
-            navbar(),
-            navbar()
+            rx.text("Pagina de inicio")
         )
     )
     

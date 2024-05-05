@@ -4,6 +4,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 reflex init
 reflex export --frontend-only
+API_URL=https://api.baackend.com reflex export --frontend-only
 Remove-Item -Recurse -Force public
 mkdir public
 Expand-Archive -Path frontend.zip -DestinationPath public

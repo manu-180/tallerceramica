@@ -16,6 +16,11 @@ async def login(data: dict):
 # Otras rutas y lógica de tu aplicación aquí...
 
 '''
+
+class TextfieldBlur(rx.State):
+    text: str = "Escribe aqui tu alias!"
+
+
 class LoginState(rx.State):
     loader: bool = False
     username:str = "example@mail.com"
@@ -59,7 +64,10 @@ class LoginState(rx.State):
 
 
 
-@rx.page(route="/login", title= "login")
+@rx.page(
+    route="/login", 
+    title= "login",
+    description="Taller de ceramica")
 def login() -> rx.Component:
     return rx.section(
         rx.center(
@@ -72,10 +80,11 @@ def login() -> rx.Component:
             rx.heading("Inicio de sesión"),
             rx.form.root(
                 rx.flex(
-                    field_from_component_general("Usuario", "Ingrese su usuario", "ingrese un correo valido", "username",
+                    field_from_component_general("UsuariO", "Ingrese su usuariO", "ingrese un correo valasdido", "username",
                                                  LoginState.set_username, LoginState.user_invalid),
                     field_form_component("Contraseña", "Ingrese su contraseña", "password",
                                          LoginState.set_password, "password"),
+                    alias(),
                     rx.form.submit(
                         rx.cond(
                             LoginState.loader,
@@ -179,3 +188,18 @@ style_section = {
     "width":"80%",
     "margin": "auto"
 }
+
+def alias() -> rx.Component:
+    return rx.form.field(
+        rx.heading(TextfieldBlur.text),
+        rx.form.label("alias"),
+    rx.input(
+        placeholder="Alias (obligatorio)(maximo 20 caracteres)",
+        max_length="20",
+        width="30vw",
+        name= "Alias",
+        required=True,
+        type="file password"
+        )
+    )
+

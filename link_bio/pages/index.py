@@ -11,6 +11,6 @@ def index() -> rx.Component:
         #     rx.text("Pagina de login"),
         #     ),
         # href="/login")
-        rx.text("todavia no")
+        rx.text("todavia nno")
     )
     

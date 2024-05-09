@@ -12,7 +12,7 @@ RUN pip install -r requirements.txt
 RUN reflex init
 
 # Download all npm dependencies and compile frontend
-RUN reflex export --frontend-only --no-zip
+RUN reflex export --backend-only --no-zip
 
 # Needed until Reflex properly passes SIGTERM on backend.
 STOPSIGNAL SIGKILL

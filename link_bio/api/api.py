@@ -1,2 +1,2 @@
-def hello() -> str:
+async def hello() -> str:
     return "hello manu "

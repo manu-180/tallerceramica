@@ -33,7 +33,7 @@ class LoginState(rx.State):
         async with self:
             self.loader = True
             self.error = False
-            response = rq.post("http://localhost:8080/auth/login", json=data, headers={"Content-Type":"application/json"})
+            response = rq.post("https://api.baackend.com/", json=data, headers={"Content-Type":"application/json"})
             if response.status_code == 200:
                 self.response = response.json()
                 self.loader = False

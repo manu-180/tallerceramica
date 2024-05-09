@@ -1,21 +1,6 @@
-'''
 import reflex as rx
 import requests as rq
 import re
-
-from fastapi import FastAPI, HTTPException
-
-app = FastAPI()
-
-@app.post("/auth/login")
-async def login(data: dict):
-    if data["username"] == "example@mail.com" and data["password"] == "tu_contraseña":
-        return {"message": "Inicio de sesión exitoso"}
-    else:
-        raise HTTPException(status_code=401, detail="Credenciales inválidas")
-
-# Otras rutas y lógica de tu aplicación aquí...
-
 
 
 class TextfieldBlur(rx.State):
@@ -204,4 +189,3 @@ def alias() -> rx.Component:
         )
     )
 
-'''

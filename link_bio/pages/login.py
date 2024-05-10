@@ -188,4 +188,3 @@ def alias() -> rx.Component:
         type="file password"
         )
     )
-

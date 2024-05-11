@@ -73,7 +73,7 @@ def login() -> rx.Component:
                             rx.button(
                                 "iniciar sesión",
                                 disabled=LoginState.validate_fields,
-                                width = "60px"
+                                width = "250px"
                             ),
                         ),
                         as_child=True,
@@ -132,7 +132,7 @@ def field_form_component(label:str, palaceholder: str, name_var:str,
             align="stretch",
         ),
         name=name_var,
-        width= "100px"
+        width= "250px"
     )
     
 def field_from_component_general(label:str, placeholder:str, massage_validated:str, name:str,
@@ -161,7 +161,7 @@ def field_from_component_general(label:str, placeholder:str, massage_validated:s
             align="stretch"
         ),
         name=name,
-        width="100px"
+        width="250px"
     )
     
 style_section = {

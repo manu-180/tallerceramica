@@ -3,14 +3,10 @@ import requests as rq
 import re
 
 
-class TextfieldBlur(rx.State):
-    text: str = "Escribe aqui tu alias!"
-
-
 class LoginState(rx.State):
     loader: bool = False
     username:str = "example@mail.com"
-    password:str = "tu_contraseña"
+    password:str 
     error = False
     response: dict = {}
     
@@ -70,7 +66,6 @@ def login() -> rx.Component:
                                                  LoginState.set_username, LoginState.user_invalid),
                     field_form_component("Contraseña", "Ingrese su contraseña", "password",
                                          LoginState.set_password, "password"),
-                    alias(),
                     rx.form.submit(
                         rx.cond(
                             LoginState.loader,
@@ -78,7 +73,7 @@ def login() -> rx.Component:
                             rx.button(
                                 "iniciar sesión",
                                 disabled=LoginState.validate_fields,
-                                width = "30vw"
+                                width = "60px"
                             ),
                         ),
                         as_child=True,
@@ -97,10 +92,10 @@ def login() -> rx.Component:
                         role= "alert",
                         style={"margin_top": "10px"}
                     ),
-                  #  on_click = LoginState.login_service,
-                   # reset_on_submit=True,
-                    #   width="80%"
-                )
+                ),
+                on_submit = LoginState.login_service,
+                reset_on_submit=True,
+                width="80%"
             )
         ,
         width="100%",
@@ -137,7 +132,7 @@ def field_form_component(label:str, palaceholder: str, name_var:str,
             align="stretch",
         ),
         name=name_var,
-        width= "30vw"
+        width= "100px"
     )
     
 def field_from_component_general(label:str, placeholder:str, massage_validated:str, name:str,
@@ -166,25 +161,11 @@ def field_from_component_general(label:str, placeholder:str, massage_validated:s
             align="stretch"
         ),
         name=name,
-        width="30vw"
+        width="100px"
     )
     
 style_section = {
-    "height": "90vh",
+    "height": "90px",
     "width":"80%",
     "margin": "auto"
 }
-
-def alias() -> rx.Component:
-    return rx.form.field(
-        rx.heading(TextfieldBlur.text),
-        rx.form.label("alias"),
-    rx.input(
-        placeholder="Alias (obligatorio)(maximo 20 caracteres)",
-        max_length="20",
-        width="30vw",
-        name= "Alias",
-        required=True,
-        type="file password"
-        )
-    )

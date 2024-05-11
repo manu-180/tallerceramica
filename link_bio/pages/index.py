@@ -8,11 +8,6 @@ def index() -> rx.Component:
             rx.text("Pagina de login"),
             ),
         href="/login"),
-          rx.link(
-            rx.button(
-            rx.text("Pagina de login"),
-            ),
-        href="/login"),
         rx.text("YA SI !!!!")
     )
     
